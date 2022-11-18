@@ -37,12 +37,12 @@ const Filter = () => {
     <Box w="20%" border='4px solid gray'>
       <Stack>
         <Heading>Filter</Heading>
-        <Checkbox onChange={(e) => handleCategory(e)} value="smartphones">smartphones</Checkbox>
-        <Checkbox onChange={(e) => handleCategory(e)} value="laptops">laptops</Checkbox>
-        <Checkbox onChange={(e) => handleCategory(e)} value="fragrances">fragrances</Checkbox>
-        <Checkbox onChange={(e) => handleCategory(e)} value="skincare">skincare</Checkbox>
-        <Checkbox onChange={(e) => handleCategory(e)} value="groceries">groceries</Checkbox>
-        <Checkbox onChange={(e) => handleCategory(e)} value="home-decoration">home-decoration</Checkbox>
+        <Checkbox defaultChecked={category.includes("smartphones")} onChange={(e) => handleCategory(e)} value="smartphones">smartphones</Checkbox>
+        <Checkbox defaultChecked={category.includes("laptops")} onChange={(e) => handleCategory(e)} value="laptops">laptops</Checkbox>
+        <Checkbox defaultChecked={category.includes("fragrances")} onChange={(e) => handleCategory(e)} value="fragrances">fragrances</Checkbox>
+        <Checkbox defaultChecked={category.includes("skincare")} onChange={(e) => handleCategory(e)} value="skincare">skincare</Checkbox>
+        <Checkbox defaultChecked={category.includes("groceries")} onChange={(e) => handleCategory(e)} value="groceries">groceries</Checkbox>
+        <Checkbox defaultChecked={category.includes("home-decoration")} onChange={(e) => handleCategory(e)} value="home-decoration">home-decoration</Checkbox>
       </Stack>
       <Heading>SORT</Heading>
       <RadioGroup onChange={setSortBy} value={sortBy}>
@@ -53,7 +53,7 @@ const Filter = () => {
           <Radio name="sortBy" value="asc" defaultChecked={sortBy === "asc"}>
             Ascending
           </Radio>
-          <Radio name="sortBy" value="desc" defaultChecked={sortBy === "asc"}>
+          <Radio name="sortBy" value="desc" defaultChecked={sortBy === "desc"}>
             Descending
           </Radio>
         </Stack>

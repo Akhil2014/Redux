@@ -51,7 +51,7 @@ export const decQty = (payload) => {
 
 export const getData = (params) => (dispatch) => {
     dispatch(apiRequest())
-    return axios.get('http://localhost:8080/products',params)
+    return axios.get('https://ecommerce-json-ser.herokuapp.com/products',params)
         .then((r) => dispatch(apiSuccess(r.data)))
         .catch((e) => dispatch(apiFailure()))
 }
