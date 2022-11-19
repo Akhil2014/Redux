@@ -3,12 +3,14 @@ import {Button, Input, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Redux/AuthReducer/action";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch()
   const {isLoading} = useSelector((s) => s.AuthReducer)
   const navigate = useNavigate()
+  const locations = useLocation()
+  const comingFrom = locations.state?.from?.pathname || "/product"
   const [data , setData] = useState({
     email:"",
     password:""
@@ -32,7 +34,7 @@ const Login = () => {
             email:"",
             password:""
           })
-          navigate("/product")
+          navigate(comingFrom)
         }
       })
     }

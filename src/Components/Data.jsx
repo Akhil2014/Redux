@@ -20,24 +20,22 @@ import { addCart, getData } from "../Redux/AppReducer/action";
 const Data = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const [searchParams] = useSearchParams()
+  const [searchParams] = useSearchParams();
   const { data, cart } = useSelector((s) => s.AppReducer);
-
 
   useEffect(() => {
     if (location || data.length === 0) {
-      const sortBy = searchParams.get("sortBy")
+      const sortBy = searchParams.get("sortBy");
       const querySearch = {
-        params:{
-          category:searchParams.getAll("category"),
-          _sort:sortBy && "price",
-          _order:sortBy
-        }
-      }
+        params: {
+          category: searchParams.getAll("category"),
+          _sort: sortBy && "price",
+          _order: sortBy,
+        },
+      };
       dispatch(getData(querySearch));
     }
   }, [location.search]);
-
 
   const handleCart = (data) => {
     const payload = {
