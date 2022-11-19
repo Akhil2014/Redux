@@ -31,8 +31,6 @@ const Filter = () => {
     }
   },[category , setSearchParams , sortBy])
 
-  console.log(category)
-
   return (
     <Box w="20%" border='4px solid gray'>
       <Stack>
